@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hell❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+    rel="stylesheet"
+  />
   <style>
     body {
       margin: 0;
@@ -26,53 +29,71 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 20px;
       width: 100%;
       max-width: 1200px;
     }
 
-    .media-card {
-       width: 320px;    /* largura fixa */
-  height: 240px;   /* altura fixa */
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
-  background-color: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    .media-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
     }
 
     .media-title {
       text-align: center;
       background-color: rgba(255, 77, 109, 0.15);
-      padding: 10px;
+      padding: 8px 12px;
       font-size: 1em;
       font-weight: bold;
       color: #ffccd5;
+      border-radius: 5px;
+      width: 100%;
+      margin-bottom: 8px;
+      user-select: none;
     }
 
-    .media-card img, .media-card video {
+    .media-card {
+      position: relative;
+      width: 320px;
+      height: 240px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+      background-color: #1a1a1a;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .media-card img,
+    .media-card video {
       width: 100%;
-      display: block;
+      height: 100%;
+      object-fit: cover;
       filter: blur(10px);
       pointer-events: none;
       transition: filter 0.4s ease;
+      display: block;
     }
 
     .overlay {
       position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  z-index: 2;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 2;
     }
 
     .overlay p {
@@ -80,6 +101,7 @@
       color: #ffccd5;
       font-size: 1.1em;
       z-index: 3;
+      user-select: none;
     }
 
     .overlay input {
@@ -89,6 +111,9 @@
       margin-bottom: 10px;
       outline: none;
       z-index: 3;
+      width: 80%;
+      max-width: 200px;
+      text-align: center;
     }
 
     .overlay button {
@@ -100,6 +125,7 @@
       cursor: pointer;
       transition: background 0.3s;
       z-index: 3;
+      width: 100px;
     }
 
     .overlay button:hover {
@@ -114,6 +140,8 @@
       border-radius: 10px;
       text-align: center;
       color: gold;
+      width: 320px;
+      user-select: none;
     }
 
     .unlock-all input {
@@ -122,6 +150,9 @@
       border: none;
       outline: none;
       margin-right: 10px;
+      width: 60%;
+      max-width: 180px;
+      text-align: center;
     }
 
     .unlock-all button {
@@ -132,6 +163,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
+      width: 100px;
     }
   </style>
 </head>
@@ -140,97 +172,129 @@
 
   <div class="gallery">
     <!-- Mídia 1 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Uma semana sem gozar</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code1">
-        <button onclick="unlock('code1', 'primeirobeijo', 'media1')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code1" />
+          <button onclick="unlock('code1', 'primeirobeijo', 'media1')">
+            Desbloquear
+          </button>
+        </div>
+        <img id="media1" src="foto1.jpg" alt="Foto 1" />
       </div>
-      <img id="media1" src="foto1.jpg" alt="Foto 1">
     </div>
 
     <!-- Mídia 2 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Banho🧼</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code2">
-        <button onclick="unlock('code2', 'nossoamor', 'media2')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code2" />
+          <button onclick="unlock('code2', 'nossoamor', 'media2')">
+            Desbloquear
+          </button>
+        </div>
+        <video id="media2" src="video1.mp4" controls></video>
       </div>
-      <video id="media2" src="video1.mp4" controls></video>
     </div>
 
     <!-- Mídia 3 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Enchendo sua calcinha de porra😈</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code3">
-        <button onclick="unlock('code3', 'diadoamor', 'media3')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code3" />
+          <button onclick="unlock('code3', 'diadoamor', 'media3')">
+            Desbloquear
+          </button>
+        </div>
+        <img id="media3" src="foto2.jpg" alt="Foto 2" />
       </div>
-      <img id="media3" src="foto2.jpg" alt="Foto 2">
     </div>
 
     <!-- Mídia 4 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Secret</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code4">
-        <button onclick="unlock('code4', 'jantar123', 'media4')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code4" />
+          <button onclick="unlock('code4', 'jantar123', 'media4')">
+            Desbloquear
+          </button>
+        </div>
+        <img id="media4" src="foto3.jpg" alt="Foto 3" />
       </div>
-      <img id="media4" src="foto3.jpg" alt="Foto 3">
     </div>
 
     <!-- Mídia 5 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Secret</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code5">
-        <button onclick="unlock('code5', 'viagemtop', 'media5')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code5" />
+          <button onclick="unlock('code5', 'viagemtop', 'media5')">
+            Desbloquear
+          </button>
+        </div>
+        <video id="media5" src="video2.mp4" controls></video>
       </div>
-      <video id="media5" src="video2.mp4" controls></video>
     </div>
 
     <!-- Mídia 6 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Secret</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code6">
-        <button onclick="unlock('code6', 'abracinho', 'media6')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code6" />
+          <button onclick="unlock('code6', 'abracinho', 'media6')">
+            Desbloquear
+          </button>
+        </div>
+        <img id="media6" src="foto4.jpg" alt="Foto 4" />
       </div>
-      <img id="media6" src="foto4.jpg" alt="Foto 4">
     </div>
 
     <!-- Mídia 7 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Sua escolha 1</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code8">
-        <button onclick="unlock('code8', 'ensaioromantico', 'media8')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code8" />
+          <button onclick="unlock('code8', 'ensaioromantico', 'media8')">
+            Desbloquear
+          </button>
+        </div>
+        <img id="media8" src="foto6.jpg" alt="Foto 6" />
       </div>
-      <img id="media8" src="foto6.jpg" alt="Foto 6">
     </div>
 
     <!-- Mídia 8 -->
-    <div class="media-card">
+    <div class="media-block">
       <div class="media-title">Sua escolha 2</div>
-      <div class="overlay">
-        <p>Digite o código</p>
-        <input type="text" id="code9">
-        <button onclick="unlock('code9', 'videodeamor', 'media9')">Desbloquear</button>
+      <div class="media-card">
+        <div class="overlay">
+          <p>Digite o código</p>
+          <input type="text" id="code9" />
+          <button onclick="unlock('code9', 'videodeamor', 'media9')">
+            Desbloquear
+          </button>
+        </div>
+        <video id="media9" src="video3.mp4" controls></video>
       </div>
-      <video id="media9" src="video3.mp4" controls></video>
     </div>
   </div>
 
   <div class="unlock-all">
     <h2>🔐 Desbloquear Tudo</h2>
-    <input type="text" id="mastercode" placeholder="Código mestre">
+    <input type="text" id="mastercode" placeholder="Código mestre" />
     <button onclick="unlockAll()">Desbloquear</button>
   </div>
 
@@ -238,10 +302,11 @@
     function unlock(inputId, expectedCode, mediaId) {
       const code = document.getElementById(inputId).value.trim();
       const media = document.getElementById(mediaId);
+      const overlay = media.previousElementSibling;
       if (code === expectedCode) {
         media.style.filter = 'none';
         media.style.pointerEvents = 'auto';
-        media.previousElementSibling.style.display = 'none';
+        if (overlay) overlay.style.display = 'none';
       } else {
         alert('Código incorreto!');
       }
@@ -252,12 +317,12 @@
       const correct = 'meuamortodinho';
       if (master === correct) {
         const allMedia = document.querySelectorAll('img, video');
-        allMedia.forEach(media => {
+        allMedia.forEach((media) => {
           media.style.filter = 'none';
           media.style.pointerEvents = 'auto';
         });
         const overlays = document.querySelectorAll('.overlay');
-        overlays.forEach(overlay => overlay.style.display = 'none');
+        overlays.forEach((overlay) => (overlay.style.display = 'none'));
       } else {
         alert('Código mestre incorreto.');
       }
