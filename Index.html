@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entre Nós ❤️</title>
+  <title>Safada❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <style>
     body {
@@ -29,7 +29,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       width: 100%;
-      max-width: 1000px;
+      max-width: 1200px;
     }
 
     .media-card {
@@ -99,13 +99,41 @@
     .overlay button:hover {
       background-color: #cc2f4d;
     }
+
+    .unlock-all {
+      margin-top: 40px;
+      background-color: rgba(255, 215, 0, 0.1);
+      border: 1px solid gold;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: gold;
+    }
+
+    .unlock-all input {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .unlock-all button {
+      background-color: gold;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <h1>Entre Nós ❤️</h1>
 
   <div class="gallery">
-    <!-- Foto 1 -->
+    <!-- Mídia 1 -->
     <div class="media-card">
       <div class="media-title">Nosso Primeiro Beijo</div>
       <div class="overlay">
@@ -116,7 +144,7 @@
       <img id="media1" src="foto1.jpg" alt="Foto 1">
     </div>
 
-    <!-- Vídeo 1 -->
+    <!-- Mídia 2 -->
     <div class="media-card">
       <div class="media-title">Nosso Amor em Movimento</div>
       <div class="overlay">
@@ -127,7 +155,7 @@
       <video id="media2" src="video1.mp4" controls></video>
     </div>
 
-    <!-- Foto 2 -->
+    <!-- Mídia 3 -->
     <div class="media-card">
       <div class="media-title">Aquele Dia Especial</div>
       <div class="overlay">
@@ -138,7 +166,7 @@
       <img id="media3" src="foto2.jpg" alt="Foto 2">
     </div>
 
-    <!-- Foto 3 -->
+    <!-- Mídia 4 -->
     <div class="media-card">
       <div class="media-title">Nosso Jantar Romântico</div>
       <div class="overlay">
@@ -149,7 +177,7 @@
       <img id="media4" src="foto3.jpg" alt="Foto 3">
     </div>
 
-    <!-- Vídeo 2 -->
+    <!-- Mídia 5 -->
     <div class="media-card">
       <div class="media-title">Viagem Inesquecível</div>
       <div class="overlay">
@@ -160,7 +188,7 @@
       <video id="media5" src="video2.mp4" controls></video>
     </div>
 
-    <!-- Foto 4 -->
+    <!-- Mídia 6 -->
     <div class="media-card">
       <div class="media-title">Nosso Abraço</div>
       <div class="overlay">
@@ -170,6 +198,45 @@
       </div>
       <img id="media6" src="foto4.jpg" alt="Foto 4">
     </div>
+
+    <!-- Mídia 7 -->
+    <div class="media-card">
+      <div class="media-title">Dia na Praia</div>
+      <div class="overlay">
+        <p>Digite o código</p>
+        <input type="text" id="code7">
+        <button onclick="unlock('code7', 'solmar', 'media7')">Desbloquear</button>
+      </div>
+      <img id="media7" src="foto5.jpg" alt="Foto 5">
+    </div>
+
+    <!-- Mídia 8 -->
+    <div class="media-card">
+      <div class="media-title">Nosso Ensaio</div>
+      <div class="overlay">
+        <p>Digite o código</p>
+        <input type="text" id="code8">
+        <button onclick="unlock('code8', 'ensaioromantico', 'media8')">Desbloquear</button>
+      </div>
+      <img id="media8" src="foto6.jpg" alt="Foto 6">
+    </div>
+
+    <!-- Mídia 9 -->
+    <div class="media-card">
+      <div class="media-title">Declaração em Vídeo</div>
+      <div class="overlay">
+        <p>Digite o código</p>
+        <input type="text" id="code9">
+        <button onclick="unlock('code9', 'videodeamor', 'media9')">Desbloquear</button>
+      </div>
+      <video id="media9" src="video3.mp4" controls></video>
+    </div>
+  </div>
+
+  <div class="unlock-all">
+    <h2>🔐 Desbloquear Tudo</h2>
+    <input type="text" id="mastercode" placeholder="Código mestre">
+    <button onclick="unlockAll()">Desbloquear</button>
   </div>
 
   <script>
@@ -182,6 +249,22 @@
         media.previousElementSibling.style.display = 'none';
       } else {
         alert('Código incorreto!');
+      }
+    }
+
+    function unlockAll() {
+      const master = document.getElementById('mastercode').value.trim();
+      const correct = 'meuamortodinho';
+      if (master === correct) {
+        const allMedia = document.querySelectorAll('img, video');
+        allMedia.forEach(media => {
+          media.style.filter = 'none';
+          media.style.pointerEvents = 'auto';
+        });
+        const overlays = document.querySelectorAll('.overlay');
+        overlays.forEach(overlay => overlay.style.display = 'none');
+      } else {
+        alert('Código mestre incorreto.');
       }
     }
   </script>
