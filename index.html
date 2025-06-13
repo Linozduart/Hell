@@ -33,11 +33,17 @@
     }
 
     .media-card {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
-      background-color: #1a1a1a;
+       width: 320px;    /* largura fixa */
+  height: 240px;   /* altura fixa */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
     }
 
     .media-title {
